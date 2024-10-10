@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+
+import {} from "./components/MoodTracker/MoodTracker"
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  return <></>;
 }
 
-export default App
+export default App;
+
+/*
+/src
+│
+├── /assets # Статические файлы (иконки, картинки, шрифты)
+│   ├── /images
+│   └── /icons
+│
+├── /components # Все компоненты приложения
+│   ├── /Auth # Компоненты для регистрации и логина
+│   │   ├── Registration.jsx
+│   │   └── Login.jsx
+│   │
+│   ├── /Mood  # Компоненты, связанные с выбором настроения
+│   │   ├── MoodSelector.jsx  # Выбор смайликов
+│   │   ├── EmojiModal.jsx    # Модальное окно с дополнительными смайликами
+│   │   └── MoodComment.jsx   # Поле для добавления комментария
+│   │
+│   ├── /UI                # Повторно используемые UI-компоненты
+│   │   ├── Button.jsx      # Кнопка "Отправить" и другие кнопки
+│   │   ├── Modal.jsx       # Общий компонент модального окна
+│   │   └── Emoji.jsx       # Компонент для отображения смайликов
+│   │
+│   └── /Menu              # Бургер-меню и его элементы
+│       ├── BurgerMenu.jsx
+│       └── MenuItems.jsx
+│
+├── /hooks                 # Кастомные хуки
+│   ├── useAuth.js         # Хук для работы с авторизацией
+│   └── useMoodTracking.js # Логика для отслеживания настроений
+│
+├── /context               # Контексты для состояния приложения
+│   └── AuthContext.js     # Контекст авторизации
+│   └── MoodContext.js     # Контекст для настроений
+│
+├── /pages                 # Страницы приложения
+│   ├── MainPage.jsx       # Главная страница (с выбором настроения)
+│   └── AuthPage.jsx       # Страница логина/регистрации
+│
+├── /services              # Логика для API и работы с данными
+│   ├── authService.js     # Сервисы для логина/регистрации
+│   └── moodService.js     # Сервисы для работы с настроениями
+│
+└── App.js                 # Основной компонент приложения
+└── index.js               # Точка входа в приложение
+└── /styles                # Стили (CSS/SCSS)
+    └── main.css 
+*/

@@ -1,0 +1,26 @@
+.mood-icons {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.mood-button {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.selected-mood {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.selected {
+  transform: scale(1.5);
+}
