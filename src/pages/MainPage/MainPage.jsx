@@ -1,10 +1,10 @@
 import { MoodTracker } from "../../components/MoodTracker/MoodTracker"
+import "./MainPage.scss"
 
 export const MainPage = () => {
   return (
-    <>
-      <h1>Main Page</h1>
+    <div>
       <MoodTracker />
-    </>
+    </div>
   );
 };

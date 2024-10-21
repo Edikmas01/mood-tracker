@@ -1,0 +1,32 @@
+[
+  {
+    "img": "/img/vOne/image 148.png",
+    "id": "1",
+    "name": "Счастлив",
+    "option": "one"
+  },
+  {
+    "img": "/img/vOne/image 162.png",
+    "id": "2",
+    "name": "Спокоен",
+    "option": "one"
+  },
+  {
+    "img": "/img/vOne/image 1775.png",
+    "id": "3",
+    "name": "Neutral",
+    "option": "one"
+  },
+  {
+    "img": "/img/vOne/image 30.png",
+    "id": "4",
+    "name": "Встревожен",
+    "option": "one"
+  },
+  {
+    "img": "/img/vOne/image 34.png",
+    "id": "5",
+    "name": "Грустен ",
+    "option": "one"
+  }
+]

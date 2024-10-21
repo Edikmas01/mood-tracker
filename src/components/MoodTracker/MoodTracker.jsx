@@ -1,40 +1,31 @@
-import './MoodTracker.scss'
-import { useState } from "react";
+import "./MoodTracker.scss";
+import { useEffect, useState } from "react";
 
-
-const moods = [
-  { id: 1, emoji: "😀", name: "Счастлив" },
-  { id: 2, emoji: "🙂", name: "Хорошее" },
-  { id: 3, emoji: "😐", name: "Нейтральное" },
-  { id: 4, emoji: "☹️", name: "Грустное" },
-  { id: 5, emoji: "😢", name: "Плохое" },
-];
 export const MoodTracker = () => {
-  const [selectedMood, setSelectedMood] = useState(null);
+  const [emojis, setEmojis] = useState([]);
 
-  const hendlMoodClik = (mood) => {
-    setSelectedMood(mood);
-  };
+  useEffect(() => {
+    const fetchEmojis = async () => {
+      try {
+        const response = await fetch("./public/api/moodOptionOne.json");
+        const data = await response.json();
+        setEmojis(data);
+      } catch (error) {
+        console.error("Ошибка при загрузке смайлов:", error);
+      }
+    };
+
+    fetchEmojis();
+  }, []);
 
   return (
     <div className="mood">
       <h1 className="mood-title">Who are you today?</h1>
-      <div className="mood-icon">
-        {moods.map((mood) => (
-          <button
-            key={mood.id}
-            onClick={() => hendlMoodClik(mood)}
-            className={`mood-button ${selectedMood === mood ? "selected" : ""}`}
-          >
-            {mood.emoji}
-          </button>
+      <div className="mood-emoji">
+        {emojis.map((emoji, index) => (
+          <img key={index} src={emoji.img} alt={emoji.name} className="emoji" />
         ))}
       </div>
-      {selectedMood && (
-        <div className="selected-mood">
-          <h2>Вы выбрали: {selectedMood.name}</h2>
-        </div>
-      )}
     </div>
   );
 };

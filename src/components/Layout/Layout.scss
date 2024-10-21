@@ -12,5 +12,14 @@
   main {
     flex-grow: 1;
     padding: 20px;
+    // background: linear-gradient(to bottom, #b3e5fc, #e1bee7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+// position: relative;
+background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 30.02%, rgba(240, 124, 244, 0.4) 100%);
+
   }
 }
+
+

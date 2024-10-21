@@ -1,8 +1,9 @@
-.mood-icons {
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0;
-}
+// .mood-icons {
+//   display: flex;
+//   justify-content: space-around;
+//   margin: 20px 0;
+// }
+
 
 .mood-button {
   font-size: 2rem;
@@ -16,11 +17,28 @@
   }
 }
 
-.selected-mood {
-  text-align: center;
-  margin-top: 20px;
+// .selected-mood {
+//   text-align: center;
+//   margin-top: 20px;
+// }
+
+// .selected {
+//   transform: scale(1.5);
+// }
+.mood-title{
+text-align: center;
 }
 
-.selected {
-  transform: scale(1.5);
+.mood-emoji{
+    display: flex; 
+    justify-content: space-between; 
+    gap: 10px;
 }
+
+.emoji {
+    width: 55px; /* Ширина смайла */
+    height: 55px; /* Высота смайла */
+}
+// .emoji:hover{
+//   padding-top: 50px;
+// }
