@@ -1,15 +1,20 @@
 import "./MoodTracker.scss";
 import { useEffect, useState } from "react";
+import {Modal} from "../Modal/Modal"
+import { Comment } from "../Comment/Comment";
 
 export const MoodTracker = () => {
   const [emojis, setEmojis] = useState([]);
   const [selectedEmoji, setSelectedEmoji] = useState(null);
+  const [selectedGroup, setSelectedGroup] = useState("one");
+    const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const fetchEmojis = async () => {
       try {
         const response = await fetch("./public/api/moodOptionOne.json");
         const data = await response.json();
+
         setEmojis(data);
       } catch (error) {
         console.error("Ошибка при загрузке смайлов:", error);
@@ -60,11 +65,22 @@ export const MoodTracker = () => {
     }
   };
 
+  const handleGroupChange = (group) => {
+    setSelectedGroup(group);
+    setShowModal(false);
+  };
+const groupsForModal = ["one", "two", "three"].filter(
+  (group) => group !== selectedGroup
+);
+  const filteredEmojis = emojis.filter(
+    (emoji) => emoji.option === selectedGroup
+  );
+
   return (
     <div className="mood">
       <h1 className="mood-title">Who are you today?</h1>
       <div className="mood-emoji">
-        {emojis.map((emoji, index) => (
+        {filteredEmojis.map((emoji, index) => (
           <div className="emoji-container" key={index}>
             <img
               key={index}
@@ -79,13 +95,26 @@ export const MoodTracker = () => {
             </div>
           </div>
         ))}
+        <button className="open-modal-btn" onClick={() => setShowModal(true)}>
+          <img className="open-modal-img" src="/public/img/1.png" alt="+" />
+        </button>
       </div>
       <div className="confetti-container"></div>
+
       {/* {selectedEmoji && (
         <div className="selected-mood">
           <h2>Вы выбрали: {selectedEmoji.name}</h2>
         </div>
       )} */}
+
+      {showModal && (
+        <Modal
+          onClose={() => setShowModal(false)}
+          onSelectGroup={handleGroupChange}
+          groupsForModal={groupsForModal}
+          emojis={emojis}
+        />
+      )}
     </div>
   );
 };

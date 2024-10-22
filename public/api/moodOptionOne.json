@@ -1,32 +1,94 @@
 [
   {
-    "img": "/img/vOne/image 148.png",
+    "img": "/img/vOne/Happy.png",
     "id": "1",
-    "name": "Счастлив",
+    "name": "Happy",
     "option": "one"
   },
   {
-    "img": "/img/vOne/image 162.png",
+    "img": "/img/vOne/Calm.png",
     "id": "2",
-    "name": "Спокоен",
+    "name": "Calm",
     "option": "one"
   },
   {
-    "img": "/img/vOne/image 1775.png",
+    "img": "/img/vOne/Neutral.png",
     "id": "3",
     "name": "Neutral",
     "option": "one"
   },
   {
-    "img": "/img/vOne/image 30.png",
+    "img": "/img/vOne/Anxious.png",
     "id": "4",
-    "name": "Встревожен",
+    "name": "Anxious",
     "option": "one"
   },
   {
-    "img": "/img/vOne/image 34.png",
+    "img": "/img/vOne/Sad.png",
     "id": "5",
-    "name": "Грустен ",
+    "name": "Sad",
     "option": "one"
+  },
+
+  {
+    "img": "/img/vTwo/Delight.png",
+    "id": "6",
+    "name": "Delight",
+    "option": "two"
+  },
+  {
+    "img": "/img/vTwo/Confident.png",
+    "id": "7",
+    "name": "Confident",
+    "option": "two"
+  },
+  {
+    "img": "/img/vTwo/Ordinary.png",
+    "id": "8",
+    "name": "Ordinary",
+    "option": "two"
+  },
+  {
+    "img": "/img/vTwo/Disappointed.png",
+    "id": "9",
+    "name": "Disappointed",
+    "option": "two"
+  },
+  {
+    "img": "/img/vTwo/Depressed.png",
+    "id": "10",
+    "name": "Depressed",
+    "option": "two"
+  },
+
+  {
+    "img": "/img/vThree/Energetic.png",
+    "id": "11",
+    "name": "Energetic",
+    "option": "three"
+  },
+  {
+    "img": "/img/vThree/Relaxed.png",
+    "id": "12",
+    "name": "Relaxed",
+    "option": "three"
+  },
+  {
+    "img": "/img/vThree/Indifferent.png",
+    "id": "13",
+    "name": "Indifferent",
+    "option": "three"
+  },
+  {
+    "img": "/img/vThree/Tired.png",
+    "id": "14",
+    "name": "Tired",
+    "option": "three"
+  },
+  {
+    "img": "/img/vThree/Upset.png",
+    "id": "15",
+    "name": "Upset",
+    "option": "three"
   }
 ]
