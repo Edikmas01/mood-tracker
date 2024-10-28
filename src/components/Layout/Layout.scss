@@ -3,23 +3,31 @@
   flex-direction: column;
   min-height: 100vh;
 
-  header, footer {
-    background-color: #f8f9fa;
+  header,
+  footer {
     padding: 20px;
     text-align: center;
   }
 
   main {
     flex-grow: 1;
-    padding:  0 20px;
+    padding: 0 20px;
     // background: linear-gradient(to bottom, #b3e5fc, #e1bee7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-// position: relative;
-background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 30.02%, rgba(240, 124, 244, 0.4) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // position: relative;
+    // background: linear-gradient(
+    //   180deg,
+    //   rgba(255, 255, 255, 0.1) 30.02%,
+    //   rgba(240, 124, 244, 0.4) 100%
+    // );
+   background: linear-gradient(
+  180deg,
+  rgba(255, 255, 255, 1) 36%, 
+  rgba(240, 124, 244, 1) 100%     
+);
 
   }
 }
-
 

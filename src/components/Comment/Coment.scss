@@ -1,6 +1,6 @@
 .comment-container {
   position: fixed;
-  bottom: 100px;
+  bottom: 70px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -22,6 +22,7 @@ align-items: center;
   width: 70%; 
   height: auto;
   overflow: hidden;
+  z-index: 0;
 }
 .text-form:focus{
       border: 1px solid #ff9900;
@@ -38,4 +39,24 @@ align-items: center;
 
 .comment-button:hover {
   background-color: #0056b3;
+}
+
+
+// 
+.selected-emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  span {
+    font-size: 1.2rem;
+    color: #333;
+  }
 }

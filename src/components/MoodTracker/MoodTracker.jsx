@@ -1,13 +1,13 @@
 import "./MoodTracker.scss";
 import { useEffect, useState } from "react";
-import {Modal} from "../Modal/Modal"
+import { Modal } from "../Modal/Modal";
 import { Comment } from "../Comment/Comment";
 
 export const MoodTracker = () => {
   const [emojis, setEmojis] = useState([]);
-  const [selectedEmoji, setSelectedEmoji] = useState(null);
   const [selectedGroup, setSelectedGroup] = useState("one");
-    const [showModal, setShowModal] = useState(false);
+  const [selectedEmoji, setSelectedEmoji] = useState({});
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const fetchEmojis = async () => {
@@ -27,6 +27,7 @@ export const MoodTracker = () => {
   const handleEmojiClick = (emoji, emojiElement) => {
     setSelectedEmoji(emoji);
     triggerEmojiConfetti(emoji.img, emojiElement);
+    localStorage.setItem("selectedEmoji", JSON.stringify(emoji));
   };
 
   const triggerEmojiConfetti = (emojiImg, emojiElement) => {
@@ -69,13 +70,19 @@ export const MoodTracker = () => {
     setSelectedGroup(group);
     setShowModal(false);
   };
-const groupsForModal = ["one", "two", "three"].filter(
-  (group) => group !== selectedGroup
-);
+
+  const groupsForModal = ["one", "two", "three"].filter(
+    (group) => group !== selectedGroup
+  );
+
   const filteredEmojis = emojis.filter(
     (emoji) => emoji.option === selectedGroup
   );
 
+  const handleClearEmoji = () => {
+    setSelectedEmoji(null); 
+    localStorage.removeItem("selectedEmoji"); 
+  };
   return (
     <div className="mood">
       <h1 className="mood-title">Who are you today?</h1>
@@ -88,6 +95,7 @@ const groupsForModal = ["one", "two", "three"].filter(
               alt={emoji.name}
               className="emoji"
               onClick={(e) => handleEmojiClick(emoji, e.target)}
+              // onClick={(e) => handleEmojilocalStor(emoji)}
             />
             <div className="overlay">
               <p>{emoji.name}</p>
@@ -101,12 +109,6 @@ const groupsForModal = ["one", "two", "three"].filter(
       </div>
       <div className="confetti-container"></div>
 
-      {/* {selectedEmoji && (
-        <div className="selected-mood">
-          <h2>Вы выбрали: {selectedEmoji.name}</h2>
-        </div>
-      )} */}
-
       {showModal && (
         <Modal
           onClose={() => setShowModal(false)}
@@ -115,6 +117,7 @@ const groupsForModal = ["one", "two", "three"].filter(
           emojis={emojis}
         />
       )}
+      <Comment selectedEmoji={selectedEmoji} onClearEmoji={handleClearEmoji} />
     </div>
   );
 };
