@@ -3,29 +3,34 @@
     "img": "/img/vOne/Happy.png",
     "id": "1",
     "name": "Happy",
-    "option": "one"
+    "option": "one",
+    "moodLevel": 1
   },
   {
     "img": "/img/vOne/Calm.png",
     "id": "2",
     "name": "Calm",
+    "moodLevel": 2,
     "option": "one"
   },
   {
     "img": "/img/vOne/Neutral.png",
     "id": "3",
+    "moodLevel": 3,
     "name": "Neutral",
     "option": "one"
   },
   {
     "img": "/img/vOne/Anxious.png",
     "id": "4",
+    "moodLevel": 4,
     "name": "Anxious",
     "option": "one"
   },
   {
     "img": "/img/vOne/Sad.png",
     "id": "5",
+    "moodLevel": 5,
     "name": "Sad",
     "option": "one"
   },
@@ -33,30 +38,35 @@
   {
     "img": "/img/vTwo/Delight.png",
     "id": "6",
+    "moodLevel": 1,
     "name": "Delight",
     "option": "two"
   },
   {
     "img": "/img/vTwo/Confident.png",
     "id": "7",
+    "moodLevel": 2,
     "name": "Confident",
     "option": "two"
   },
   {
     "img": "/img/vTwo/Ordinary.png",
     "id": "8",
+    "moodLevel": 3,
     "name": "Ordinary",
     "option": "two"
   },
   {
     "img": "/img/vTwo/Disappointed.png",
     "id": "9",
+    "moodLevel": 4,
     "name": "Disappointed",
     "option": "two"
   },
   {
     "img": "/img/vTwo/Depressed.png",
     "id": "10",
+    "moodLevel": 5,
     "name": "Depressed",
     "option": "two"
   },
@@ -64,30 +74,35 @@
   {
     "img": "/img/vThree/Energetic.png",
     "id": "11",
+    "moodLevel": 1,
     "name": "Energetic",
     "option": "three"
   },
   {
     "img": "/img/vThree/Relaxed.png",
     "id": "12",
+    "moodLevel": 2,
     "name": "Relaxed",
     "option": "three"
   },
   {
     "img": "/img/vThree/Indifferent.png",
     "id": "13",
+    "moodLevel": 3,
     "name": "Indifferent",
     "option": "three"
   },
   {
     "img": "/img/vThree/Tired.png",
     "id": "14",
+    "moodLevel": 4,
     "name": "Tired",
     "option": "three"
   },
   {
     "img": "/img/vThree/Upset.png",
     "id": "15",
+    "moodLevel": 5,
     "name": "Upset",
     "option": "three"
   }

@@ -27,7 +27,7 @@ export const MoodTracker = () => {
   const handleEmojiClick = (emoji, emojiElement) => {
     setSelectedEmoji(emoji);
     triggerEmojiConfetti(emoji.img, emojiElement);
-    localStorage.setItem("selectedEmoji", JSON.stringify(emoji));
+    // localStorage.setItem("selectedEmoji", JSON.stringify(emoji));
   };
 
   const triggerEmojiConfetti = (emojiImg, emojiElement) => {
@@ -81,7 +81,7 @@ export const MoodTracker = () => {
 
   const handleClearEmoji = () => {
     setSelectedEmoji(null); 
-    localStorage.removeItem("selectedEmoji"); 
+    // localStorage.removeItem("selectedEmoji"); 
   };
   return (
     <div className="mood">

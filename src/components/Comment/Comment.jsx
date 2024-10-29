@@ -1,32 +1,35 @@
 import { useState } from "react";
 import "./Coment.scss";
-// import PropTypes from "prop-types";
+
 
 export const Comment = ({ selectedEmoji, onClearEmoji }) => {
   const [comment, setComment] = useState("");
-  // const [savedEmoji, setSavedEmoji] = useState(null);
 
-  // useEffect(() => {
-  //   const storedEmoji = JSON.parse(localStorage.getItem("selectedEmoji"));
-  //   if (storedEmoji) {
-  //     setSavedEmoji(storedEmoji);
-  //   }
-  // }, []);
 
   const handleChange = (e) => {
     setComment(e.target.value);
     e.target.style.height = "auto";
-    // e.target.style.height = e.target.scrollHeight + "px";
+
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (comment.trim()) {
-      const data = {
-        emoji: selectedEmoji,
+    if (comment.trim() && selectedEmoji) {
+      
+      const moodData = {
+        data: new Date().toISOString().split("T")[0],
+        moodLevel: selectedEmoji.moodLevel,
         comment: comment.trim(),
+        name: selectedEmoji.name,
+        img: selectedEmoji.img,
+        id: selectedEmoji.id,
+        option: selectedEmoji.option,
       };
-      console.log("Отправка данных:", data); //  на сервер
+      const existingData = JSON.parse(localStorage.getItem("moodData")) || [];
+      existingData.push(moodData);
+      localStorage.setItem("moodData", JSON.stringify(existingData));
+
+      console.log("Отправка данных:", moodData); //  на сервер
       setComment("");
 
       if (onClearEmoji) {
@@ -44,7 +47,7 @@ export const Comment = ({ selectedEmoji, onClearEmoji }) => {
     <div className="comment-container">
       {selectedEmoji && selectedEmoji.img && (
         <div className="selected-emoji">
-          <img src={selectedEmoji.img} alt="g" />
+          <img src={selectedEmoji.img} alt="Selected Emoji" />
           {/* <span>{selectedEmoji.name}</span> */}
         </div>
       )}

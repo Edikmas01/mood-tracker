@@ -1,20 +1,16 @@
 import { useState } from "react";
 import "./BurgerMenu.scss";
-import { StatisticsModal } from "../StatisticsModal/StatisticsModal";
+import { Link } from "react-router-dom";
 
 export const BurgerMenu = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isReminderOn, setIsReminderOn] = useState(false);
-  const [isStatisticsModalOpen, setIsStatisticsModalOpen] = useState(false);
+
 
   const handleMenuOpen = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  const handleStatisticsClick = () => {
-    console.log("Statistics page opened");
-    setIsStatisticsModalOpen(true);
-  };
-    
+
   const handleCalendarClick = () => {
     console.log("Mood calendar opened");
   };
@@ -37,8 +33,11 @@ export const BurgerMenu = () => {
         <div className="overlay" onClick={() => setIsMenuOpen(false)}>
           <div className="menu" onClick={(e) => e.stopPropagation()}>
             <ul className="menu-list">
-              <li className="menu-item" onClick={handleStatisticsClick}>
-                Statistics
+              <li className="menu-item">
+                <Link to="/">Mood tracker</Link>
+              </li>
+              <li className="menu-item">
+                <Link to="/statistics">Statistics</Link>
               </li>
               <li className="menu-item" onClick={handleCalendarClick}>
                 Calendar of your mood
@@ -61,10 +60,6 @@ export const BurgerMenu = () => {
           </div>
         </div>
       )}
-      <StatisticsModal
-        isOpen={isStatisticsModalOpen}
-        onClose={() => setIsStatisticsModalOpen(false)}
-      />
     </div>
   );
 };
