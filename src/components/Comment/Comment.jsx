@@ -17,7 +17,7 @@ export const Comment = ({ selectedEmoji, onClearEmoji }) => {
     if (comment.trim() && selectedEmoji) {
       
       const moodData = {
-        data: new Date().toISOString().split("T")[0],
+        date: new Date().toISOString().split("T")[0],
         moodLevel: selectedEmoji.moodLevel,
         comment: comment.trim(),
         name: selectedEmoji.name,

@@ -7,7 +7,9 @@ import { RegisterPage } from "./pages/RegisterPage/RegisterPage.jsx";
 import { LoginPage } from "./pages/LoginPage/LoginPage.jsx";
 // import App from "./App.jsx";
 // import { StatisticsPage } from "./pages/StatisticsPage/StatisticsPage.jsx";
-import {StatisticsPage} from "./pages/StatisticsPage/StatisticsPage.jsx"
+import { StatisticsPage } from "./pages/StatisticsPage/StatisticsPage.jsx"
+import { CalendarPage } from "./pages/CalendarPage/CalendarPage.jsx";
+
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -30,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "statistics",
         element: <StatisticsPage />,
+      },
+      {
+        path: "calendar",
+        element: <CalendarPage />,
       },
     ],
   },

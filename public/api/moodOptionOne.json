@@ -4,13 +4,13 @@
     "id": "1",
     "name": "Happy",
     "option": "one",
-    "moodLevel": 1
+    "moodLevel": 5
   },
   {
     "img": "/img/vOne/Calm.png",
     "id": "2",
     "name": "Calm",
-    "moodLevel": 2,
+    "moodLevel": 4,
     "option": "one"
   },
   {
@@ -23,14 +23,14 @@
   {
     "img": "/img/vOne/Anxious.png",
     "id": "4",
-    "moodLevel": 4,
+    "moodLevel": 2,
     "name": "Anxious",
     "option": "one"
   },
   {
     "img": "/img/vOne/Sad.png",
     "id": "5",
-    "moodLevel": 5,
+    "moodLevel": 1,
     "name": "Sad",
     "option": "one"
   },

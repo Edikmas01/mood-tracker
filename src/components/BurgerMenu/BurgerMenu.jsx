@@ -11,9 +11,12 @@ export const BurgerMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleCalendarClick = () => {
-    console.log("Mood calendar opened");
-  };
+const handleMenuItemClick = () => {
+  setIsMenuOpen(false); 
+};
+  // const handleCalendarClick = () => {
+  //   console.log("Mood calendar opened");
+  // };
 
   const handleReminderToggle = () => {
     setIsReminderOn(!isReminderOn);
@@ -33,14 +36,24 @@ export const BurgerMenu = () => {
         <div className="overlay" onClick={() => setIsMenuOpen(false)}>
           <div className="menu" onClick={(e) => e.stopPropagation()}>
             <ul className="menu-list">
-              <li className="menu-item">
-                <Link to="/">Mood tracker</Link>
+              <li className="menu-item" onClick={handleMenuItemClick}>
+                <Link className="menu-link" to="/">
+                  Mood tracker
+                </Link>
               </li>
-              <li className="menu-item">
-                <Link to="/statistics">Statistics</Link>
+              <li className="menu-item" onClick={handleMenuItemClick}>
+                <Link className="menu-link" to="/statistics">
+                  Statistics
+                </Link>
               </li>
-              <li className="menu-item" onClick={handleCalendarClick}>
-                Calendar of your mood
+              <li
+                className="menu-item"
+                // onClick={handleCalendarClick}
+                onClick={handleMenuItemClick}
+              >
+                <Link className="menu-link" to="/calendar">
+                  Calendar of your mood
+                </Link>
               </li>
               <li className="menu-item">
                 <label className="checkbox-ios">
