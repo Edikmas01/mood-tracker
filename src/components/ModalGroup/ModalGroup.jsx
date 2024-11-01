@@ -1,11 +1,6 @@
-import "./Modal.scss";
+import "./ModalGroup.scss";
 
-export const Modal = ({
-  onClose,
-  onSelectGroup,
-  groupsForModal,
-  emojis
-}) => {
+export const ModalGroup = ({ onClose, onSelectGroup, groupsForModal, emojis }) => {
   const groupOne = emojis.filter((emoji) => emoji.option === "one");
   const groupTwo = emojis.filter((emoji) => emoji.option === "two");
   const groupThree = emojis.filter((emoji) => emoji.option === "three");
@@ -40,7 +35,6 @@ export const Modal = ({
                 onClick={() => onSelectGroup("two")}
               />
             ))}
-  
           </div>
         )}
 
@@ -58,7 +52,9 @@ export const Modal = ({
           </div>
         )}
 
-        <button  className="close-btn" onClick={onClose}>x</button>
+        <button className="close-btn" onClick={onClose}>
+          x
+        </button>
       </div>
     </div>
   );

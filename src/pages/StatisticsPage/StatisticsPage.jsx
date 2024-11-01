@@ -14,8 +14,8 @@ export const StatisticsPage = () => {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
-    // Получаем данные из LocalStorage
     const moodData = JSON.parse(localStorage.getItem("moodData")) || [];
+
     const formattedData = moodData.map((item) => ({
       date: item.date,
       moodLevel: item.moodLevel,
@@ -41,6 +41,7 @@ export const StatisticsPage = () => {
   return (
     <div className="statistics-container">
       <h2 className="statistics-title">Statistics</h2>
+
       {chartData.length > 0 ? (
         <ResponsiveContainer width="100%" height={450}>
           <LineChart

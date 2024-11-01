@@ -1,9 +1,9 @@
 .mood {
-  margin-top: 50%;
-  // position: relative;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+  // margin-top: 50%;
+  // // position: relative;
+    display: block;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -17,11 +17,15 @@ text-align: center;
     display: flex; 
     justify-content: space-between; 
     gap: 10px;
+    // margin: 10px;
+    //      justify-content: center;
+    // align-items: center;
 }
 
 .emoji-container {
   position: relative;
   display: inline-block; 
+ 
 }
 
 .emoji {
@@ -29,6 +33,7 @@ text-align: center;
   height: 55px;
   cursor: pointer;
   transition: transform 0.3s;
+  // margin-right: 10px;
 }
 
 .overlay {
@@ -63,15 +68,14 @@ margin: 5px 0 0 0;
 }
 
 .open-modal-btn{
-
   margin: 0 auto;
-
   padding: 0;
    border: none;
    background-color: rgba(255, 255, 255, 0); 
   // font-size: 50px;
 }
-.open-modal-img{  width: 45px;
+.open-modal-img{  
+  width: 45px;
   height: 45px;}
 
 // .mood-button {
@@ -90,8 +94,8 @@ margin: 5px 0 0 0;
   margin-top: 20px;
   font-size: 18px;
 }
-//
 
+//
 .confetti-container {
   position: absolute;
   top: 0;

@@ -1,16 +1,19 @@
 import { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
 import { Layout } from "./components/Layout/Layout.jsx";
 import { MainPage } from "./pages/MainPage/MainPage.jsx";
 import { RegisterPage } from "./pages/RegisterPage/RegisterPage.jsx";
 import { LoginPage } from "./pages/LoginPage/LoginPage.jsx";
 // import App from "./App.jsx";
-// import { StatisticsPage } from "./pages/StatisticsPage/StatisticsPage.jsx";
-import { StatisticsPage } from "./pages/StatisticsPage/StatisticsPage.jsx"
+import { StatisticsPage } from "./pages/StatisticsPage/StatisticsPage.jsx";
 import { CalendarPage } from "./pages/CalendarPage/CalendarPage.jsx";
 
 import "./index.css";
+import { HomePage } from "./pages/HomePage/HomePage.jsx";
+import { store } from "./store/index.js"
+import "./firebase.js"
 
 const router = createBrowserRouter([
   {
@@ -21,14 +24,7 @@ const router = createBrowserRouter([
         index: true,
         element: <MainPage />,
       },
-      {
-        path: "register",
-        element: <RegisterPage />,
-      },
-      {
-        path: "login",
-        element: <LoginPage />,
-      },
+
       {
         path: "statistics",
         element: <StatisticsPage />,
@@ -37,12 +33,26 @@ const router = createBrowserRouter([
         path: "calendar",
         element: <CalendarPage />,
       },
+      {
+        path: "home",
+        element: <HomePage />,
+      },
+      {
+        path: "register",
+        element: <RegisterPage />,
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+    <Provider store={store}> 
   <RouterProvider router={router}>
     <Suspense fallback={<div>Loading...</div>} />
-  </RouterProvider>
+    </RouterProvider>
+    </Provider>
 );

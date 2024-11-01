@@ -1,6 +1,6 @@
 import "./MoodTracker.scss";
 import { useEffect, useState } from "react";
-import { Modal } from "../Modal/Modal";
+import { ModalGroup } from "../ModalGroup/ModalGroup";
 import { Comment } from "../Comment/Comment";
 
 export const MoodTracker = () => {
@@ -27,12 +27,10 @@ export const MoodTracker = () => {
   const handleEmojiClick = (emoji, emojiElement) => {
     setSelectedEmoji(emoji);
     triggerEmojiConfetti(emoji.img, emojiElement);
-    // localStorage.setItem("selectedEmoji", JSON.stringify(emoji));
   };
 
   const triggerEmojiConfetti = (emojiImg, emojiElement) => {
     const confettiContainer = document.querySelector(".confetti-container");
-
     const rect = emojiElement.getBoundingClientRect();
     const offsetX = rect.left + rect.width / 2;
     const offsetY = rect.top + rect.height / 2;
@@ -81,7 +79,6 @@ export const MoodTracker = () => {
 
   const handleClearEmoji = () => {
     setSelectedEmoji(null); 
-    // localStorage.removeItem("selectedEmoji"); 
   };
   return (
     <div className="mood">
@@ -95,7 +92,6 @@ export const MoodTracker = () => {
               alt={emoji.name}
               className="emoji"
               onClick={(e) => handleEmojiClick(emoji, e.target)}
-              // onClick={(e) => handleEmojilocalStor(emoji)}
             />
             <div className="overlay">
               <p>{emoji.name}</p>
@@ -107,10 +103,10 @@ export const MoodTracker = () => {
           <img className="open-modal-img" src="/public/img/1.png" alt="+" />
         </button>
       </div>
-      <div className="confetti-container"></div>
 
+      <div className="confetti-container"></div>
       {showModal && (
-        <Modal
+        <ModalGroup
           onClose={() => setShowModal(false)}
           onSelectGroup={handleGroupChange}
           groupsForModal={groupsForModal}

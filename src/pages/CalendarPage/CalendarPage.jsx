@@ -1,26 +1,3 @@
-// import { Calendar as BigCalendar, momentLocalizer } from "react-big-calendar";
-// import moment from "moment";
-// import "react-big-calendar/lib/css/react-big-calendar.css";
-// import "./CalendarPage.scss"
-
-// const localizer = momentLocalizer(moment);
-
-// export const CalendarPage = () => {
-//  const events = [];
-//     return (
-//       <div className="calendar-container">
-//         <h2 className="calendar-title">Calendar of Your Mood</h2>
-//         <BigCalendar
-//           localizer={localizer}
-//           events={events}
-//           startAccessor="start"
-//           endAccessor="end"
-//           style={{ height: 550 }}
-//         />
-//       </div>
-//     );
-// }
-
 import { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";

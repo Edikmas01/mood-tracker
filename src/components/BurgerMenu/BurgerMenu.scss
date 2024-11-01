@@ -12,7 +12,6 @@
     z-index: 3;
   }
 
-  /* Полупрозрачный фон для модального меню */
   .overlay {
     position: fixed;
     top: 0;
@@ -26,14 +25,13 @@
     z-index: 999;
   }
 
-  /* Стили самого меню */
+
   .menu {
     background: #fff;
     padding: 40px 20px;
     border-radius: 50px;
     width: 80%;
     max-width: 300px;
-    // text-align: center;
     z-index: 1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 
@@ -42,7 +40,6 @@
       padding: 0;
       margin: 0;
 
-      // justify-content: start;
 
       .menu-item {
         display: flex;
@@ -71,16 +68,7 @@
       font-size: 16px;
     }
 
-    // .reminder-label {
-    //   display: flex;
-
-    //   gap: 8px;
-
-    //   input[type="checkbox"] {
-    //     accent-color: #4caf50;
-    //     cursor: pointer;
-    //   }
-    // }
+//
     .reminder {
       margin-left: 10px;
       font-size: 25px;
@@ -128,6 +116,7 @@
       z-index: -1;
       opacity: 0;
     }
+
     .checkbox-ios
       input[type="checkbox"]:not(:disabled):active
       + .checkbox-ios-switch:before {

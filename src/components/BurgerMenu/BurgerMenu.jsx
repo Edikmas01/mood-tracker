@@ -1,10 +1,13 @@
 import { useState } from "react";
 import "./BurgerMenu.scss";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {removeUser} from "../../store/slices/userSlice"
 
 export const BurgerMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isReminderOn, setIsReminderOn] = useState(false);
+  const dispath =useDispatch()
 
 
   const handleMenuOpen = () => {
@@ -14,17 +17,15 @@ export const BurgerMenu = () => {
 const handleMenuItemClick = () => {
   setIsMenuOpen(false); 
 };
-  // const handleCalendarClick = () => {
-  //   console.log("Mood calendar opened");
-  // };
+
 
   const handleReminderToggle = () => {
     setIsReminderOn(!isReminderOn);
-    console.log(`Reminder set to ${!isReminderOn ? "ON" : "OFF"}`);
+    
   };
 
   const handleLogOut = () => {
-    console.log("User logged out");
+    dispath(removeUser())
   };
   return (
     <div className="burgerMenu">
@@ -48,7 +49,6 @@ const handleMenuItemClick = () => {
               </li>
               <li
                 className="menu-item"
-                // onClick={handleCalendarClick}
                 onClick={handleMenuItemClick}
               >
                 <Link className="menu-link" to="/calendar">
@@ -68,7 +68,7 @@ const handleMenuItemClick = () => {
               </li>
             </ul>
             <button className="menu-button" onClick={handleLogOut}>
-              log out
+              Log out
             </button>
           </div>
         </div>
