@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../store/slices/userSlice";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import "./LoginPage.scss"
 
 export const LoginPage = () => {
   const dispatch = useDispatch();
@@ -24,16 +25,16 @@ export const LoginPage = () => {
             // password: user.password,
           })
         );
-        navigate("/");
+        navigate("/main");
       })
       .catch(() => alert("invalid user!"));
   };
   
   return (
-    <div>
-      <h1>Login Page </h1>
-      <Form title="Login" handleClick={ handleLogin} />
-      <p>
+    <div className="loginPage">
+      <h1 className="loginPage-title">Login Page </h1>
+      <Form title="Login" handleClick={handleLogin} />
+      <p className="loginPage-text">
         or <Link to="/register">register</Link>
       </p>
     </div>

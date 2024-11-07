@@ -2,6 +2,7 @@ import "./MoodTracker.scss";
 import { useEffect, useState } from "react";
 import { ModalGroup } from "../ModalGroup/ModalGroup";
 import { Comment } from "../Comment/Comment";
+import { HomePage } from "../../pages/HomePage/HomePage";
 
 export const MoodTracker = () => {
   const [emojis, setEmojis] = useState([]);
@@ -101,6 +102,7 @@ export const MoodTracker = () => {
         ))}
         <button className="open-modal-btn" onClick={() => setShowModal(true)}>
           <img className="open-modal-img" src="/public/img/1.png" alt="+" />
+          {/* + */}
         </button>
       </div>
 
@@ -114,6 +116,7 @@ export const MoodTracker = () => {
         />
       )}
       <Comment selectedEmoji={selectedEmoji} onClearEmoji={handleClearEmoji} />
+      <HomePage style={{ display: "none" }} emojis={filteredEmojis} />
     </div>
   );
 };

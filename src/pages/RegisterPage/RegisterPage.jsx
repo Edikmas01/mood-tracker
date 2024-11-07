@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../store/slices/userSlice";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import "./RegisterPage.scss"
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -26,20 +27,19 @@ export const RegisterPage = () => {
             // password: user.password,
           })
         );
-        navigate("/");
+        navigate("/main");
       })
       .catch(console.error);
   };
 
   return (
-    <>
-      <h1>Register Page</h1>
+    <div className="registerPage">
+      <h1 className="registerPage-title">Register Page</h1>
       <Form title="Register" handleClick={handleRegistern} />
-      <p>
-        or
-        <Link to="/login">login </Link>
+      <p className="registerPage-text">
+        or <Link to="/login">login</Link>
       </p>
-    </>
+    </div>
   );
 };
 /*

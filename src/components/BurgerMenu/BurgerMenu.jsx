@@ -38,7 +38,7 @@ const handleMenuItemClick = () => {
           <div className="menu" onClick={(e) => e.stopPropagation()}>
             <ul className="menu-list">
               <li className="menu-item" onClick={handleMenuItemClick}>
-                <Link className="menu-link" to="/">
+                <Link className="menu-link" to="/main">
                   Mood tracker
                 </Link>
               </li>

@@ -5,7 +5,8 @@ export function useAuth() {
     (state) => state.user
   );
     return {
-      isAuth: !!email,
+      // isAuth: !!email,
+      isAuth: !!token,
       id,
       token,
       email,

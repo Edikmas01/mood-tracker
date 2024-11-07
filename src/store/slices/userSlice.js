@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   id: null,
-  token: null,
-  email: null,
+  token: localStorage.getItem("token") || null,
+  email: localStorage.getItem("email") || null,
   name: null,
   // password: null,
 };
@@ -19,6 +19,8 @@ const userSlise = createSlice({
       state.email = action.payload.email;
       state.name = action.payload.name;
       // state.password = action.payload.password;
+       localStorage.setItem("token", action.payload.token);
+       localStorage.setItem("email", action.payload.email);
     },
     removeUser(state) {
       state.id = null;
@@ -26,6 +28,8 @@ const userSlise = createSlice({
       state.email = null;
       state.name = null;
       // state.password = null;
+        localStorage.removeItem("token");
+        localStorage.removeItem("email");
     },
   },
 });

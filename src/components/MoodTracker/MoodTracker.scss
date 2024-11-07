@@ -74,21 +74,34 @@ margin: 5px 0 0 0;
    background-color: rgba(255, 255, 255, 0); 
   // font-size: 50px;
 }
+
+// .open-modal-btn{
+//     background: transparent;
+//     border: 2px solid #333;
+//     color: #333;
+//     border-radius: 50%;
+//     width: 40px;
+//     height: 40px;
+//     font-size: 20px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//   }
 .open-modal-img{  
   width: 45px;
   height: 45px;}
 
-// .mood-button {
-//   font-size: 2rem;
-//   background: none;
-//   border: none;
-//   cursor: pointer;
-//   transition: transform 0.2s;
+.mood-button {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
 
-//   &:hover {
-//     transform: scale(1.2);
-//   }
-// }
+  &:hover {
+    transform: scale(1.2);
+  }
+}
 
 .selected-mood {
   margin-top: 20px;

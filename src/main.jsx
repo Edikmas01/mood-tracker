@@ -14,6 +14,9 @@ import "./index.css";
 import { HomePage } from "./pages/HomePage/HomePage.jsx";
 import { store } from "./store/index.js"
 import "./firebase.js"
+// import{ PublicRoute }from "./components/PrivateRoute/PrivateRoute.jsx";
+
+
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        // element: <PublicRoute element={<HomePage />} />,
+        element: <HomePage/>
+      },
+      {
+        path: "main",
         element: <MainPage />,
       },
 
@@ -32,10 +40,6 @@ const router = createBrowserRouter([
       {
         path: "calendar",
         element: <CalendarPage />,
-      },
-      {
-        path: "home",
-        element: <HomePage />,
       },
       {
         path: "register",
@@ -49,6 +53,7 @@ const router = createBrowserRouter([
   },
 ]);
 
+
 ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}> 
   <RouterProvider router={router}>
@@ -56,3 +61,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </RouterProvider>
     </Provider>
 );
+
