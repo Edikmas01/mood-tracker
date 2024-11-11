@@ -1,54 +1,46 @@
 import { useState } from "react";
 import "./Coment.scss";
+import {saveMoodData} from "../../firebaseService"
+
 
 
 export const Comment = ({ selectedEmoji, onClearEmoji }) => {
   const [comment, setComment] = useState("");
+ const [errorMessage, setErrorMessage] = useState(""); // Стейт для отображения ошибки
 
+ const handleSubmit = async (e) => {
+   e.preventDefault();
 
-  const handleChange = (e) => {
-    setComment(e.target.value);
-    e.target.style.height = "auto";
+   const result = await saveMoodData(selectedEmoji, comment);
 
-  };
+   if (result.success) {
+     setComment(""); 
+     setErrorMessage("");
+     if (onClearEmoji) onClearEmoji();
+   } else {
+  
+     
+     setErrorMessage(result.error || "Произошла ошибка при сохранении данных.");
+   }
+ };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (comment.trim() && selectedEmoji) {
-      
-      const moodData = {
-        date: new Date().toISOString().split("T")[0],
-        moodLevel: selectedEmoji.moodLevel,
-        comment: comment.trim(),
-        name: selectedEmoji.name,
-        img: selectedEmoji.img,
-        id: selectedEmoji.id,
-        option: selectedEmoji.option,
-      };
-      const existingData = JSON.parse(localStorage.getItem("moodData")) || [];
-      existingData.push(moodData);
-      localStorage.setItem("moodData", JSON.stringify(existingData));
-
-      console.log("Отправка данных:", moodData); //  на сервер
-      setComment("");
-
-      if (onClearEmoji) {
-        onClearEmoji();
-      }
-    }
-  };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       handleSubmit(e);
     }
   };
+
+ const handleChange = (e) => {
+    setComment(e.target.value);
+  };
+
+
   return (
     <div className="comment-container">
       {selectedEmoji && selectedEmoji.img && (
         <div className="selected-emoji">
           <img src={selectedEmoji.img} alt="Selected Emoji" />
-          {/* <span>{selectedEmoji.name}</span> */}
         </div>
       )}
 
@@ -66,6 +58,7 @@ export const Comment = ({ selectedEmoji, onClearEmoji }) => {
           push
         </button>
       </form>
+      {errorMessage && <div className="error-message">{errorMessage}</div>}
     </div>
   );
 };

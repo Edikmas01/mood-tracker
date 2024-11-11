@@ -26,6 +26,8 @@ export const LoginPage = () => {
           })
         );
         navigate("/main");
+        console.log("you login in:" , Date() );
+        
       })
       .catch(() => alert("invalid user!"));
   };

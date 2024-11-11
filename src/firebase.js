@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -11,8 +12,14 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_APP_FIREBASE_APP_ID,
+   databaseURL: "https://mood-tracker-0011-default-rtdb.firebaseio.com/"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
 export default app;
+
+
+// https://mood-tracker-0011-default-rtdb.firebaseio.com/
