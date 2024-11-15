@@ -11,6 +11,7 @@ export const HomePage = () => {
   if (token) {
     return <Navigate to="/main" replace />;
   }
+
   useEffect(() => {
     const fetchEmojis = async () => {
       try {
@@ -28,15 +29,13 @@ export const HomePage = () => {
   const filteredEmojis = emojis.filter((emoji) => emoji.option === "one");
 
   return (
-    
-      
-<div className="home">
+    <div className="home">
       <div className="btn-container">
         <button className="home-btn">
           <Link to="/login">log in</Link>
         </button>
         <button className="home-btn">
-          <Link to="/app/register">connect</Link>
+          <Link to="/register">connect</Link>
         </button>
       </div>
 
@@ -54,15 +53,18 @@ export const HomePage = () => {
           ))}
           <button className="plus-btn">+</button>
         </div>
-        <p className="home-text">
-          this application will help you understand your emotions, track
-          statistics and find out the precise connections between your emotions
-        </p>
-        <img
-          src="/public/img/homeImg/meinPageOne.png"
-          alt="Снимок экрана 2024-10-03 140548"
-          className="home-image"
-        />
+        <div className="text-img">
+          <p className="home-text">
+            this application will help you understand your emotions, track
+            statistics and find out the precise connections between your
+            emotions
+          </p>
+          <img
+            src="/public/img/homeImg/meinPageOne.png"
+            alt="Снимок экрана 2024-10-03 140548"
+            className="home-image"
+          />
+        </div>
       </section>
 
       <section className="section">
@@ -79,17 +81,19 @@ export const HomePage = () => {
           ))}
           <button className="plus-btn">+</button>
         </div>
-        <p className="home-text">
-          just come in every day, note your emotions and watch how everything
-          begins to change. Magic
-        </p>
-        <img
-          src="/public/img/homeImg/meinPageTwo.png"
-          alt="Снимок экрана 2024-10-03 140548"
-          className="home-image"
-        />
+        <div className="text-img-two">
+          <img
+            src="/public/img/homeImg/meinPageTwo.png"
+            alt="Снимок экрана 2024-10-03 140548"
+            className="home-image-two"
+          />
+
+          <p className="home-text">
+            just come in every day, note your emotions and watch how everything
+            begins to change. Magic
+          </p>
+        </div>
       </section>
     </div>
-    
   );
 };

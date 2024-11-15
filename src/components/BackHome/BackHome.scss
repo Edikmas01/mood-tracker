@@ -1,0 +1,23 @@
+.btn-back {
+  position: absolute;
+  top: 20px;  
+  right: 20px;  
+  background-color: #0486c2;  
+  color: white;  
+  border: none;  
+  padding: 10px;
+
+
+  border-radius: 5px; 
+  font-size: 16px;  
+  cursor: pointer;  
+}
+
+.btn-back a {
+  text-decoration: none;  
+  color: inherit;  
+  padding: 12px;
+}
+.btn-back:hover {
+  background-color: #0056b3;  
+}

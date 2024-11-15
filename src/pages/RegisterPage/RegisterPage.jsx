@@ -5,6 +5,8 @@ import { setUser } from "../../store/slices/userSlice";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import "./RegisterPage.scss"
+import { BackHome } from "../../components/BackHome/BackHome";
+
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -33,13 +35,16 @@ export const RegisterPage = () => {
   };
 
   return (
-    <div className="registerPage">
-      <h1 className="registerPage-title">Register Page</h1>
-      <Form title="Register" handleClick={handleRegistern} />
-      <p className="registerPage-text">
-        or <Link to="/login">login</Link>
-      </p>
-    </div>
+    <>
+      <BackHome />
+      <div className="registerPage">
+        <h1 className="registerPage-title">Register Page</h1>
+        <Form title="Register" handleClick={handleRegistern} />
+        <p className="registerPage-text">
+          or <Link to="/login">login</Link>
+        </p>
+      </div>
+    </>
   );
 };
 /*

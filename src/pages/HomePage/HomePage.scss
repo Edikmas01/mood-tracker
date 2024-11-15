@@ -77,16 +77,36 @@
   }
 
  
-
+.text-img{
+  display: flex;
+  margin: 50px 0 ;
+  gap: 25px;
+}
   .home-text {
     font-size: 20px;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
+    margin: 0 auto;
  
   }
 
   .home-image {
     width: 200px;
-    border-radius: 30px;
-    // margin-top: 10px;
+    height: 250px;
+    border-radius: 20px;
+     transform: rotate(15deg); 
+    margin-top: 30px;
   }
+
+.text-img-two{
+  display: flex;
+  margin: 50px 0 ;
+  gap: 15px;
 }
+}
+    .home-image-two {
+    width: 200px;
+    height: 300px;
+    border-radius: 24px;
+     transform: rotate(-12deg); 
+    margin-left: 10px;
+  }

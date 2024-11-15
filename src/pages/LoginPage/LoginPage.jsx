@@ -5,6 +5,7 @@ import { setUser } from "../../store/slices/userSlice";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.scss"
+import {BackHome} from "../../components/BackHome/BackHome"
 
 export const LoginPage = () => {
   const dispatch = useDispatch();
@@ -26,19 +27,21 @@ export const LoginPage = () => {
           })
         );
         navigate("/main");
-        console.log("you login in:" , Date() );
         
       })
       .catch(() => alert("invalid user!"));
   };
   
   return (
-    <div className="loginPage">
-      <h1 className="loginPage-title">Login Page </h1>
-      <Form title="Login" handleClick={handleLogin} />
-      <p className="loginPage-text">
-        or <Link to="/register">register</Link>
-      </p>
-    </div>
+    <>
+    <BackHome/>
+      <div className="loginPage">
+        <h1 className="loginPage-title">Login Page </h1>
+        <Form title="Login" handleClick={handleLogin} />
+        <p className="loginPage-text">
+          or <Link to="/register">register</Link>
+        </p>
+      </div>
+    </>
   );
 };

@@ -1,5 +1,7 @@
 import "./StatisticsPage.scss"
 import { useEffect, useState } from "react";
+import { getAuth } from "firebase/auth";
+import { fetchUserMoodData } from "../../services/fetchUserMoodData";
 import {
   LineChart,
   Line,
@@ -10,18 +12,35 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+
 export const StatisticsPage = () => {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
-    const moodData = JSON.parse(localStorage.getItem("moodData")) || [];
+    const fetchData = async () => {
+      const auth = getAuth();
+      const user = auth.currentUser;
+      console.log(user);
+      
+      if (user) {
+        const userId = user.uid;
+        const moodData = await fetchUserMoodData(userId);
 
-    const formattedData = moodData.map((item) => ({
-      date: item.date,
-      moodLevel: item.moodLevel,
-      moodName: item.name,
-    }));
-    setChartData(formattedData);
+        if (moodData) {
+          const formattedData = Object.values(moodData).map((item) => ({
+            date: item.date,
+            moodLevel: item.moodLevel,
+            moodName: item.name,
+          }));
+          setChartData(formattedData);
+        } else {
+          console.log("No mood data available for the user.");
+        }
+      } else {
+        console.log("User not authenticated");
+      }
+    };
+    fetchData();
   }, []);
 
   const CustomTooltip = ({ active, payload }) => {

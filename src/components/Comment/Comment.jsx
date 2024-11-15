@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Coment.scss";
-import {saveMoodData} from "../../firebaseService"
+import {saveMoodData} from "../../services/firebaseService"
 
 
 
