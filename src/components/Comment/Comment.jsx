@@ -1,40 +1,32 @@
 import { useState } from "react";
 import "./Coment.scss";
-import {saveMoodData} from "../../services/firebaseService"
-
-
+import { saveMoodData } from "../../services/saveMoodData"
 
 export const Comment = ({ selectedEmoji, onClearEmoji }) => {
   const [comment, setComment] = useState("");
- const [errorMessage, setErrorMessage] = useState(""); // Стейт для отображения ошибки
 
- const handleSubmit = async (e) => {
-   e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-   const result = await saveMoodData(selectedEmoji, comment);
-
-   if (result.success) {
-     setComment(""); 
-     setErrorMessage("");
-     if (onClearEmoji) onClearEmoji();
-   } else {
-  
-     
-     setErrorMessage(result.error || "Произошла ошибка при сохранении данных.");
-   }
- };
-
+    try {
+      await saveMoodData(selectedEmoji, comment);
+      setComment("");
+      if (onClearEmoji) onClearEmoji();
+    } catch (error) {
+      console.error("Ошибка при сохранении:", error);
+    }
+  };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
       handleSubmit(e);
     }
   };
 
- const handleChange = (e) => {
+  const handleChange = (e) => {
     setComment(e.target.value);
   };
-
 
   return (
     <div className="comment-container">
@@ -58,7 +50,6 @@ export const Comment = ({ selectedEmoji, onClearEmoji }) => {
           push
         </button>
       </form>
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
     </div>
   );
 };
