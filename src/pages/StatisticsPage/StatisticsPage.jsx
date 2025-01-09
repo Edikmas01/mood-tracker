@@ -15,12 +15,14 @@ import {
 
 export const StatisticsPage = () => {
   const [chartData, setChartData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [startDate, setStartDate] = useState(""); 
+   const [endDate, setEndDate] = useState(""); 
 
   useEffect(() => {
     const fetchData = async () => {
       const auth = getAuth();
       const user = auth.currentUser;
-      console.log(user);
       
       if (user) {
         const userId = user.uid;
@@ -43,6 +45,19 @@ export const StatisticsPage = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (startDate && endDate) {
+      const filtered = chartData.filter((item) => {
+        const itemDate = new Date(item.date);
+        return (
+          itemDate >= new Date(startDate) && itemDate <= new Date(endDate)
+        );
+      });
+      setFilteredData(filtered);
+    }
+  }, [startDate, endDate, chartData]);
+ 
+  
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       const { date, moodLevel, moodName } = payload[0].payload;
@@ -60,27 +75,52 @@ export const StatisticsPage = () => {
   return (
     <div className="statistics-container">
       <h2 className="statistics-title">Statistics</h2>
-
-      {chartData.length > 0 ? (
-        <ResponsiveContainer width="100%" height={450}>
-          <LineChart
-            data={chartData}
-            margin={{ top: 15, right: 5, left: -40, bottom: 1 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="datt" />
-            <YAxis domain={[1, 5]} />
-            <Tooltip content={<CustomTooltip />} />
-            <Line
-              type="monotone"
-              dataKey="moodLevel"
-              stroke="#8884d8"
-              activeDot={{ r: 8 }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
+      <div className="date-filters">
+        <label>
+          Start Date:
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+          />
+        </label>
+        <label>
+          End Date:
+          <input
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+          />
+        </label>
+      </div>
+      {startDate && endDate ? (
+        filteredData.length > 0 ? (
+          <ResponsiveContainer width="100%" height={450}>
+            <LineChart
+              data={filteredData}
+              margin={{ top: 15, right: 5, left: -40, bottom: 1 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="date" />
+              <YAxis domain={[1, 5]} />
+              <Tooltip content={<CustomTooltip />} />
+              <Line
+                type="monotone"
+                dataKey="moodLevel"
+                stroke="#8884d8"
+                activeDot={{ r: 8 }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        ) : (
+          <h3 className="no-data-message">
+            No data available for the selected period.
+          </h3>
+        )
       ) : (
-        <h3 className="no-data-message">No data available for statistics.</h3>
+        <h3 className="no-period-message">
+          Please select a start and end date to view the statistics.
+        </h3>
       )}
     </div>
   );

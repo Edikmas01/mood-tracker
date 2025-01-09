@@ -91,6 +91,10 @@ export const CalendarPage = () => {
           </div>
         </div>
       )}
+      <p className="clue">
+        On this page you can see what your mood was like in the past, just
+        choose a specific day.
+      </p>
     </div>
   );
 };

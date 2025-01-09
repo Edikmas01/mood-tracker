@@ -101,8 +101,8 @@ export const MoodTracker = () => {
           </div>
         ))}
         <button className="open-modal-btn" onClick={() => setShowModal(true)}>
-          <img className="open-modal-img" src="/public/img/1.png" alt="+" />
-          {/* + */}
+          {/* <img className="open-modal-img" src="/public/img/1.png" alt="+" /> */}
+          +
         </button>
       </div>
 

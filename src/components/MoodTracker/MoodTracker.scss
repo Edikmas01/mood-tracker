@@ -68,11 +68,19 @@ margin: 5px 0 0 0;
 }
 
 .open-modal-btn{
-  margin: 0 auto;
-  padding: 0;
-   border: none;
-   background-color: rgba(255, 255, 255, 0); 
-  // font-size: 50px;
+ 
+    background: transparent;
+    border: 2px solid #333;
+    color: #333;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    font-size:30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 a;
+    padding: 0;
 }
 
 // .open-modal-btn{
@@ -87,9 +95,9 @@ margin: 5px 0 0 0;
 //     align-items: center;
 //     justify-content: center;
 //   }
-.open-modal-img{  
-  width: 45px;
-  height: 45px;}
+// .open-modal-img{  
+//   width: 45px;
+//   height: 45px;}
 
 .mood-button {
   font-size: 2rem;
