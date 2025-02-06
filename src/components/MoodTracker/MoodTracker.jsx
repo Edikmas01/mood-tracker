@@ -13,7 +13,7 @@ export const MoodTracker = () => {
   useEffect(() => {
     const fetchEmojis = async () => {
       try {
-        const response = await fetch("./public/api/moodOptionOne.json");
+        const response = await fetch("/api/moodOptionOne.json");
         const data = await response.json();
 
         setEmojis(data);
@@ -30,40 +30,47 @@ export const MoodTracker = () => {
     triggerEmojiConfetti(emoji.img, emojiElement);
   };
 
-  const triggerEmojiConfetti = (emojiImg, emojiElement) => {
-    const confettiContainer = document.querySelector(".confetti-container");
-    const rect = emojiElement.getBoundingClientRect();
-    const offsetX = rect.left + rect.width / 2;
-    const offsetY = rect.top + rect.height / 2;
+const triggerEmojiConfetti = (emojiImg, emojiElement) => {
+  const confettiContainer = document.querySelector(".confetti-container");
+  const rect = emojiElement.getBoundingClientRect();
+  const offsetX = rect.left + rect.width / 2;
+  const offsetY = rect.top + rect.height / 2;
 
-    for (let i = 0; i < 4; i++) {
-      const confetti = document.createElement("img");
-      confetti.src = emojiImg;
-      confetti.className = "confetti-emoji";
+  const totalConfetti = 8; 
+  const flightDuration = 1500; 
 
-      //v1
-      /*confetti.style.left = `${Math.random() * 100}%`;
-      confetti.style.animationDelay = `${Math.random() * 2}s`;
-      */
+  for (let i = 0; i < totalConfetti; i++) {
+    const confetti = document.createElement("img");
+    confetti.src = emojiImg;
+    confetti.className = "confetti-emoji";
 
-      //v2
-      confetti.style.left = `${offsetX}px`;
-      confetti.style.top = `${offsetY}px`;
-      const randomX = (Math.random() - 0.5) * 200;
-      const randomY = (Math.random() - 0.5) * 200;
-      confetti.style.transform = `translate(${randomX}px, ${randomY}px) scale(2)`;
-      //  setTimeout(() => {
-      //    confetti.style.transform = `translate(${randomX}px, ${randomY}px) scale(2)`;
-      //    confetti.style.opacity = "0";
-      //  }, i * 100);
+    
+    confetti.style.left = `${offsetX}px`;
+    confetti.style.top = `${offsetY}px`;
 
-      confettiContainer.appendChild(confetti);
+    const randomX = (Math.random() - 0.5) * 350; 
+    const randomY = (Math.random() - 0.5) * 350; 
+    const scale = 1.5;
 
-      setTimeout(() => {
-        confetti.remove();
-      }, 2000);
-    }
-  };
+    setTimeout(() => {
+      confetti.style.transform = `translate(${randomX}px, ${randomY}px) scale(${scale})`;
+      confetti.style.opacity = "1"; 
+    }, 10); 
+
+    
+    setTimeout(() => {
+      confetti.style.opacity = "0";
+    }, flightDuration - 500); 
+
+    
+    setTimeout(() => {
+      confetti.remove();
+    }, flightDuration);
+
+    confettiContainer.appendChild(confetti);
+  }
+};
+
 
   const handleGroupChange = (group) => {
     setSelectedGroup(group);

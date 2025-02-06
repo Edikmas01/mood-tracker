@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Homesection from "./Homesection/Homesection";
+import {Homesection} from "./Homesection/Homesection";
 import "./HomePage.scss";
 
 export const HomePage = () => {
@@ -16,7 +16,7 @@ export const HomePage = () => {
   useEffect(() => {
     const fetchEmojis = async () => {
       try {
-        const response = await fetch("./public/api/moodOptionOne.json");
+        const response = await fetch("./api/moodOptionOne.json");
         const data = await response.json();
         setEmojis(data.filter((emoji) => emoji.option === "one"));
       } catch (error) {
@@ -31,14 +31,14 @@ export const HomePage = () => {
     {
       title: "What is this?",
       text: "This application will help you understand your emotions, track statistics and find out the precise connections between your emotions.",
-      imgSrc: "/public/img/homeImg/meinPageOne.png",
+      imgSrc: "/img/homeImg/meinPageOne.png",
       emojis: emojis,
       showEmojis: true,
     },
     {
       title: "How does this work?",
       text: "Just come in every day, note your emotions and watch how everything begins to change. Magic.",
-      imgSrc: "/public/img/homeImg/meinPageTwo.png",
+      imgSrc: "/img/homeImg/meinPageTwo.png",
       emojis: emojis,
       showEmojis: true,
       isReversed: true,
@@ -46,12 +46,12 @@ export const HomePage = () => {
     {
       title: "What else can make?",
       text: "Track your mood statistics and follow the dynamics of changes.",
-      imgSrc: "/public/img/homeImg/meinPageThee.png",
+      imgSrc: "/img/homeImg/meinPageThee.png",
     },
     {
       title: "Maybe something else??",
       text: "You can also view your emotions on any day, thanks to the calendar with your notes.",
-      imgSrc: "/public/img/homeImg/meinPageFor.png",
+      imgSrc: "/img/homeImg/meinPageFor.png",
       isReversed: true,
     },
   ];

@@ -1,5 +1,5 @@
-// components/Emoji.jsx
-const Homeemoji = ({ emoji }) => (
+
+export const Homeemoji = ({ emoji }) => (
   <div className="emoji-container">
     <img src={emoji.img} alt={emoji.name} className="emoji" />
     <div className="overlay">
@@ -9,4 +9,3 @@ const Homeemoji = ({ emoji }) => (
   </div>
 );
 
-export default Homeemoji;

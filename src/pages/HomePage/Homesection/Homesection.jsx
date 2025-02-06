@@ -1,7 +1,7 @@
 // components/Section.jsx
-import Homeemoji from "../Homeemoji/Homeemoji";
+import { Homeemoji } from "../Homeemoji/Homeemoji";
 
-const Homesection = ({
+export const Homesection = ({
   title,
   text,
   imgSrc,
@@ -20,7 +20,7 @@ const Homesection = ({
           +
           <div className="overlay">
             <p>Choose more</p>
-            <div className="arrow"></div>
+            {/* <div className="arrow"></div> */}
           </div>
         </button>
       </div>
@@ -33,11 +33,13 @@ const Homesection = ({
             alt=""
             className={`home-image${isReversed ? "-two" : ""}`}
           />
+
           <p className="home-text">{text}</p>
         </>
       ) : (
         <>
           <p className="home-text">{text}</p>
+
           <img
             src={imgSrc}
             alt=""
@@ -48,5 +50,3 @@ const Homesection = ({
     </div>
   </section>
 );
-
-export default Homesection;

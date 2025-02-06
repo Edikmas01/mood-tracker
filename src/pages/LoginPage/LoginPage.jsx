@@ -34,11 +34,14 @@ export const LoginPage = () => {
   
   return (
     <>
-    <BackHome/>
-      <div className="loginPage">
-        <h1 className="loginPage-title">Login Page </h1>
+      <BackHome />
+      <div className="loginForm">
+        <h1 className="loginForm-title">Login Page </h1>
         <Form title="Login" handleClick={handleLogin} />
-        <p className="loginPage-text">
+        <Link className="reset-password" to="/reset-password">
+          Forgotten password?
+        </Link>
+        <p className="loginForm-text">
           or <Link to="/register">register</Link>
         </p>
       </div>

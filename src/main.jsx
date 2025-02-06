@@ -6,6 +6,8 @@ import { Layout } from "./components/Layout/Layout.jsx";
 import { MainPage } from "./pages/MainPage/MainPage.jsx";
 import { RegisterPage } from "./pages/RegisterPage/RegisterPage.jsx";
 import { LoginPage } from "./pages/LoginPage/LoginPage.jsx";
+import { ResetPassword } from "./pages/ResetPassword/ResetPassword.jsx";
+
 // import App from "./App.jsx";
 import { StatisticsPage } from "./pages/StatisticsPage/StatisticsPage.jsx";
 import { CalendarPage } from "./pages/CalendarPage/CalendarPage.jsx";
@@ -14,6 +16,7 @@ import "./index.css";
 import { HomePage } from "./pages/HomePage/HomePage.jsx";
 import { store } from "./store/index.js"
 import "./firebase.js"
+import { NewPasswordPage } from "./pages/NewPasswordPage/NewPasswordPage.jsx";
 // import{ PublicRoute }from "./components/PrivateRoute/PrivateRoute.jsx";
 
 
@@ -26,7 +29,7 @@ const router = createBrowserRouter([
       {
         index: true,
         // element: <PublicRoute element={<HomePage />} />,
-        element: <HomePage/>
+        element: <HomePage />,
       },
       {
         path: "main",
@@ -49,6 +52,15 @@ const router = createBrowserRouter([
         path: "login",
         element: <LoginPage />,
       },
+      {
+        path: "reset-password",
+        element: <ResetPassword />,
+      },
+      // {
+      //   path: "new-password",
+      //   element: <NewPasswordPage />,
+      // },
+      // { path: "*", element: <NewPasswordPage /> },
     ],
   },
 ]);

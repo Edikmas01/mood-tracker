@@ -12,14 +12,14 @@ export const Form = ({ title, handleClick }) => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="email"
-        className="imput-form"
+        className="input-form"
       />
       <input
         type="password"
         value={pass}
         onChange={(e) => setPass(e.target.value)}
         placeholder="password"
-        className="imput-form"
+        className="input-form"
       />
       <button className="form-btn" onClick={() => handleClick(email, pass)}>{title}</button>
     </div>

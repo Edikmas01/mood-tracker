@@ -37,10 +37,10 @@ export const RegisterPage = () => {
   return (
     <>
       <BackHome />
-      <div className="registerPage">
-        <h1 className="registerPage-title">Register Page</h1>
+      <div className="registerForm">
+        <h1 className="registerForm-title">Register Page</h1>
         <Form title="Register" handleClick={handleRegistern} />
-        <p className="registerPage-text">
+        <p className="registerForm-text">
           or <Link to="/login">login</Link>
         </p>
       </div>
@@ -49,5 +49,5 @@ export const RegisterPage = () => {
 };
 /*
 edikmaslovskiy@gmail.com
-123456gg
+123456GG  
 */
