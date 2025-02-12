@@ -36,14 +36,14 @@
 
 .custom-modal {
   text-align: center;
-  max-height: 40vh; /* Ограничиваем высоту окна */
-  overflow-y: auto; /* Добавляем вертикальную прокрутку */
+  max-height: 40vh; 
+  overflow-y: auto;
   padding: 0  0 20px 0;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 90%;
-  max-width: 500px; /* Ограничиваем максимальную ширину */
+  max-width: 500px;
   margin: 0 auto;
 
 

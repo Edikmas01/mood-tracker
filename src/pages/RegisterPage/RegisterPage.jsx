@@ -47,7 +47,3 @@ export const RegisterPage = () => {
     </>
   );
 };
-/*
-edikmaslovskiy@gmail.com
-123456GG  
-*/

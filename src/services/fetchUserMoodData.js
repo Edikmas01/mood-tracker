@@ -1,5 +1,5 @@
 import { ref, get, child } from "firebase/database";
-import { database } from "../firebase"; // проверьте правильность пути
+import { database } from "../firebase"; 
 
 export async function fetchUserMoodData(userId) {
   try {

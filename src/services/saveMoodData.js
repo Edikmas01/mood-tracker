@@ -1,48 +1,3 @@
-// import { getDatabase, ref, set, push } from "firebase/database";
-// import { getAuth } from "firebase/auth";
-
-// export const saveMoodData = async (selectedEmoji, comment) => {
-//   const auth = getAuth();
-//   const user = auth.currentUser;
-
-//   if (!user) {
-//     console.error("Ошибка: пользователь не авторизован.");
-//     return;
-//   }
-
-//   if (!comment.trim()) {
-//     console.error("Ошибка: комментарий не может быть пустым.");
-//     return;
-//   }
-
-//   if (!selectedEmoji) {
-//     console.error("Ошибка: эмоция не выбрана.");
-//     return;
-//   }
-
-//   const db = getDatabase();
-//   const userId = user.uid;
-//   const newMoodRef = push(ref(db, `moods/${userId}/moods`));
-
-//   const moodData = {
-//     date: new Date().toISOString().split("T")[0],
-//     moodLevel: selectedEmoji.moodLevel,
-//     comment: comment.trim(),
-//     name: selectedEmoji.name,
-//     img: selectedEmoji.img,
-//     id: selectedEmoji.id,
-//     option: selectedEmoji.option,
-//     email: user.email,
-//   };
-
-//   set(newMoodRef, moodData)
-//     .then(() => {
-//       console.log("Данные о настроении успешно сохранены:", moodData);
-//     })
-//     .catch((error) => {
-//       console.error("Ошибка при сохранении данных о настроении:", error);
-//     });
-// }
 import {
   getDatabase,
   ref,
@@ -60,21 +15,21 @@ export const saveMoodData = async (selectedEmoji, comment) => {
   const user = auth.currentUser;
 
   if (!user) {
-    const alertMessage = "Пользователь не авторизован.";
+    const alertMessage = "User is not authorized.";
     console.error(alertMessage);
     alert(alertMessage);
     return { success: false, message: alertMessage };
   }
 
   if (!comment.trim()) {
-    const alertMessage = "Комментарий не может быть пустым.";
+    const alertMessage = "Comment cannot be empty.";
     console.error(alertMessage);
     alert(alertMessage);
     return { success: false, message: alertMessage };
   }
 
   if (!selectedEmoji) {
-    const alertMessage = "Эмоция не выбрана.";
+    const alertMessage = "Emotion not selected.";
     console.error(alertMessage);
     alert(alertMessage);
     return { success: false, message: alertMessage };
@@ -94,7 +49,7 @@ export const saveMoodData = async (selectedEmoji, comment) => {
       const dailyLimit = 2;
 
       if (moodCount >= dailyLimit) {
-        const alertMessage = "Вы достигли дневного лимита записей.";
+        const alertMessage = "You have reached your daily post limit..";
         console.error(alertMessage);
         alert(alertMessage);
         return { success: false, message: alertMessage };
@@ -114,10 +69,10 @@ export const saveMoodData = async (selectedEmoji, comment) => {
     };
 
     await set(newMoodRef, moodData);
-    console.log("Данные о настроении успешно сохранены:", moodData);
+    console.log("Mood data saved successfully:", moodData);
     return { success: true };
   } catch (error) {
-    console.error("Ошибка при сохранении данных о настроении:", error);
+    console.error("Error saving mood data:", error);
     return { success: false, error: error.message };
   }
 };

@@ -13,7 +13,7 @@ export const Comment = ({ selectedEmoji, onClearEmoji }) => {
       setComment("");
       if (onClearEmoji) onClearEmoji();
     } catch (error) {
-      console.error("Ошибка при сохранении:", error);
+      console.error("Error while saving:", error);
     }
   };
 

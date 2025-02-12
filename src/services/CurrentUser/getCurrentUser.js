@@ -10,7 +10,7 @@ export const getCurrentUser = () => {
       uid: user.uid,
     };
   } else {
-    console.error("Пользователь не авторизован.");
+    console.error("User is not authorized.");
     return null;
   }
 };
